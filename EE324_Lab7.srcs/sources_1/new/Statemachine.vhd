@@ -37,8 +37,8 @@ use IEEE.STD_LOGIC_UNSIGNED.all;
 entity Stopwatch_Statemachine is
     Port ( 
            BTNs : in STD_LOGIC_VECTOR (2 downto 0);
-           clk : in STD_LOGIC;
-           rst : in STD_LOGIC;
+           Clk : in STD_LOGIC;
+           Rst : in STD_LOGIC;
            En : out STD_LOGIC);
 end Stopwatch_Statemachine;
 
@@ -48,11 +48,13 @@ signal CURRENT_STATE, NEXT_STATE: std_logic_vector (1 downto 0);
 
 begin
 
-process(clk, rst)
+process(Clk, Rst)
 begin
 
-    if (rst = '1') then NEXT_STATE <= "00";
-    else
+    if (Rst = '1') then 
+        NEXT_STATE <= "00";
+        En <= '0';
+    elsif (rising_edge(Clk)) then
         case CURRENT_STATE is
             when "00" =>
                 case BTNs is
@@ -73,24 +75,17 @@ begin
                     when "010" => NEXT_STATE <= "11";
                     when others => NEXT_STATE <= "00";
                 end case;
+            when others => NEXT_STATE <= "00";
         end case;
     end if;
+    
+    case CURRENT_STATE is
+        when "01" | "10" => En <= '1';
+        when others =>      En <= '0';
+    end case;
     
     CURRENT_STATE <= NEXT_STATE;
     
-end process;
-
-process(clk, rst)
-begin
-
-    if (rst = '1') then EN <= '0';
-    else
-        case CURRENT_STATE is
-            when "01" | "10" => En <= '1';
-            when others =>      En <= '0';
-        end case;
-    end if;
-            
 end process;
 
 end Behavioral;

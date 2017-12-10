@@ -46,7 +46,7 @@ architecture Behavioral of Display_Controller is
 signal Sel: STD_LOGIC_VECTOR (1 downto 0) := "00";
 signal Segment_Wire, D0, D1, D2, D3: STD_LOGIC_VECTOR (3 downto 0);
 
-component BCD 
+component bin2bcd 
 port(
 I: in STD_LOGIC_VECTOR (15 downto 0);
 Thou: out STD_LOGIC_VECTOR (3 downto 0);
@@ -86,7 +86,7 @@ Sel : out STD_LOGIC_VECTOR (1 downto 0)
 
 begin
 
-    u1: BCD port map(   I => I,
+    u1: bin2bcd port map(   I => I,
                         Thou => D0,
                         Hund => D1, 
                         Tens => D2,

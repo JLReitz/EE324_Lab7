@@ -67,16 +67,16 @@ start_step init_design
 set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
-  set_param synth.incrementalSynthesisCache C:/Users/jlrei/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-12204-Jensen-Desktop/incrSyn
+  set_param xicom.use_bs_reader 1
   create_project -in_memory -part xc7a35tcpg236-1
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
-  set_property webtalk.parent_dir D:/Documents/SourceTree/EE324_Lab7/EE324_Lab7.cache/wt [current_project]
-  set_property parent.project_path D:/Documents/SourceTree/EE324_Lab7/EE324_Lab7.xpr [current_project]
-  set_property ip_output_repo D:/Documents/SourceTree/EE324_Lab7/EE324_Lab7.cache/ip [current_project]
+  set_property webtalk.parent_dir C:/Users/jlrei/Documents/SourceTree/EE324_Lab7/EE324_Lab7.cache/wt [current_project]
+  set_property parent.project_path C:/Users/jlrei/Documents/SourceTree/EE324_Lab7/EE324_Lab7.xpr [current_project]
+  set_property ip_output_repo C:/Users/jlrei/Documents/SourceTree/EE324_Lab7/EE324_Lab7.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
-  add_files -quiet D:/Documents/SourceTree/EE324_Lab7/EE324_Lab7.runs/synth_1/Stopwatch.dcp
-  read_xdc D:/Documents/SourceTree/EE324_Lab7/EE324_Lab7.srcs/constrs_1/new/Basys3_Master_Constraints.xdc
+  add_files -quiet C:/Users/jlrei/Documents/SourceTree/EE324_Lab7/EE324_Lab7.runs/synth_1/Stopwatch.dcp
+  read_xdc C:/Users/jlrei/Documents/SourceTree/EE324_Lab7/EE324_Lab7.srcs/constrs_1/new/Basys3_Master_Constraints.xdc
   link_design -top Stopwatch -part xc7a35tcpg236-1
   close_msg_db -file init_design.pb
 } RESULT]
@@ -114,7 +114,7 @@ set rc [catch {
   write_checkpoint -force Stopwatch_placed.dcp
   create_report "impl_1_place_report_io_0" "report_io -file Stopwatch_io_placed.rpt"
   create_report "impl_1_place_report_utilization_0" "report_utilization -file Stopwatch_utilization_placed.rpt -pb Stopwatch_utilization_placed.pb"
-  create_report "impl_1_place_report_control_sets_0" "report_control_sets -verbose -file Stopwatch_control_sets_placed.rpt"
+  create_report "impl_1_place_report_control_sets_0" "report_control_sets -file Stopwatch_control_sets_placed.rpt"
   close_msg_db -file place_design.pb
 } RESULT]
 if {$rc} {
@@ -135,7 +135,7 @@ set rc [catch {
   create_report "impl_1_route_report_methodology_0" "report_methodology -file Stopwatch_methodology_drc_routed.rpt -pb Stopwatch_methodology_drc_routed.pb -rpx Stopwatch_methodology_drc_routed.rpx"
   create_report "impl_1_route_report_power_0" "report_power -file Stopwatch_power_routed.rpt -pb Stopwatch_power_summary_routed.pb -rpx Stopwatch_power_routed.rpx"
   create_report "impl_1_route_report_route_status_0" "report_route_status -file Stopwatch_route_status.rpt -pb Stopwatch_route_status.pb"
-  create_report "impl_1_route_report_timing_summary_0" "report_timing_summary -max_paths 10 -file Stopwatch_timing_summary_routed.rpt -warn_on_violation  -rpx Stopwatch_timing_summary_routed.rpx"
+  create_report "impl_1_route_report_timing_summary_0" "report_timing_summary -file Stopwatch_timing_summary_routed.rpt -warn_on_violation  -rpx Stopwatch_timing_summary_routed.rpx"
   create_report "impl_1_route_report_incremental_reuse_0" "report_incremental_reuse -file Stopwatch_incremental_reuse_routed.rpt"
   create_report "impl_1_route_report_clock_utilization_0" "report_clock_utilization -file Stopwatch_clock_utilization_routed.rpt"
   close_msg_db -file route_design.pb

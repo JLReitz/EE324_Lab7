@@ -16,7 +16,7 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
-set_param synth.incrementalSynthesisCache C:/Users/jlrei/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-12204-Jensen-Desktop/incrSyn
+set_param xicom.use_bs_reader 1
 set_msg_config -id {Synth 8-256} -limit 10000
 set_msg_config -id {Synth 8-638} -limit 10000
 create_project -in_memory -part xc7a35tcpg236-1
@@ -24,23 +24,23 @@ create_project -in_memory -part xc7a35tcpg236-1
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_property webtalk.parent_dir D:/Documents/SourceTree/EE324_Lab7/EE324_Lab7.cache/wt [current_project]
-set_property parent.project_path D:/Documents/SourceTree/EE324_Lab7/EE324_Lab7.xpr [current_project]
+set_property webtalk.parent_dir C:/Users/jlrei/Documents/SourceTree/EE324_Lab7/EE324_Lab7.cache/wt [current_project]
+set_property parent.project_path C:/Users/jlrei/Documents/SourceTree/EE324_Lab7/EE324_Lab7.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language VHDL [current_project]
-set_property ip_output_repo d:/Documents/SourceTree/EE324_Lab7/EE324_Lab7.cache/ip [current_project]
+set_property ip_output_repo c:/Users/jlrei/Documents/SourceTree/EE324_Lab7/EE324_Lab7.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 read_vhdl -library xil_defaultlib {
-  D:/Documents/SourceTree/EE324_Lab7/EE324_Lab7.srcs/sources_1/new/Bin2BCD.vhd
-  D:/Documents/SourceTree/EE324_Lab7/EE324_Lab7.srcs/sources_1/new/Bin2Seg.vhd
-  D:/Documents/SourceTree/EE324_Lab7/EE324_Lab7.srcs/sources_1/new/Binary_Counter.vhd
-  D:/Documents/SourceTree/EE324_Lab7/EE324_Lab7.srcs/sources_1/new/Clock_Divider.vhd
-  D:/Documents/SourceTree/EE324_Lab7/EE324_Lab7.srcs/sources_1/new/Decoder.vhd
-  D:/Documents/SourceTree/EE324_Lab7/EE324_Lab7.srcs/sources_1/new/Display_Controller.vhd
-  D:/Documents/SourceTree/EE324_Lab7/EE324_Lab7.srcs/sources_1/new/Mux.vhd
-  D:/Documents/SourceTree/EE324_Lab7/EE324_Lab7.srcs/sources_1/new/Select_Controller.vhd
-  D:/Documents/SourceTree/EE324_Lab7/EE324_Lab7.srcs/sources_1/new/Statemachine.vhd
-  D:/Documents/SourceTree/EE324_Lab7/EE324_Lab7.srcs/sources_1/new/Stopwatch.vhd
+  C:/Users/jlrei/Documents/SourceTree/EE324_Lab7/EE324_Lab7.srcs/sources_1/new/Bin2BCD.vhd
+  C:/Users/jlrei/Documents/SourceTree/EE324_Lab7/EE324_Lab7.srcs/sources_1/new/Bin2Seg.vhd
+  C:/Users/jlrei/Documents/SourceTree/EE324_Lab7/EE324_Lab7.srcs/sources_1/new/Binary_Counter.vhd
+  C:/Users/jlrei/Documents/SourceTree/EE324_Lab7/EE324_Lab7.srcs/sources_1/new/Clock_Divider.vhd
+  C:/Users/jlrei/Documents/SourceTree/EE324_Lab7/EE324_Lab7.srcs/sources_1/new/Decoder.vhd
+  C:/Users/jlrei/Documents/SourceTree/EE324_Lab7/EE324_Lab7.srcs/sources_1/new/Display_Controller.vhd
+  C:/Users/jlrei/Documents/SourceTree/EE324_Lab7/EE324_Lab7.srcs/sources_1/new/Mux.vhd
+  C:/Users/jlrei/Documents/SourceTree/EE324_Lab7/EE324_Lab7.srcs/sources_1/new/Select_Controller.vhd
+  C:/Users/jlrei/Documents/SourceTree/EE324_Lab7/EE324_Lab7.srcs/sources_1/new/Statemachine.vhd
+  C:/Users/jlrei/Documents/SourceTree/EE324_Lab7/EE324_Lab7.srcs/sources_1/new/Stopwatch.vhd
 }
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
@@ -50,11 +50,11 @@ read_vhdl -library xil_defaultlib {
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc D:/Documents/SourceTree/EE324_Lab7/EE324_Lab7.srcs/constrs_1/new/Basys3_Master_Constraints.xdc
-set_property used_in_implementation false [get_files D:/Documents/SourceTree/EE324_Lab7/EE324_Lab7.srcs/constrs_1/new/Basys3_Master_Constraints.xdc]
+read_xdc C:/Users/jlrei/Documents/SourceTree/EE324_Lab7/EE324_Lab7.srcs/constrs_1/new/Basys3_Master_Constraints.xdc
+set_property used_in_implementation false [get_files C:/Users/jlrei/Documents/SourceTree/EE324_Lab7/EE324_Lab7.srcs/constrs_1/new/Basys3_Master_Constraints.xdc]
 
 
-synth_design -top Stopwatch -part xc7a35tcpg236-1
+synth_design -top Stopwatch -part xc7a35tcpg236-1 -flatten_hierarchy none
 
 
 # disable binary constraint mode for synth run checkpoints

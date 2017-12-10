@@ -2,6 +2,7 @@
 ## To use it in a project:
 ## - uncomment the lines corresponding to used pins
 ## - rename the used ports (in each line, after get_ports) according to the top level signal names in the project
+#set_property ALLOW_COMBINATORIAL_LOOPS TRUE [get_nets disp_control/u4/An[2]]
 
 # Clock signal
 set_property PACKAGE_PIN W5 [get_ports Clk]							

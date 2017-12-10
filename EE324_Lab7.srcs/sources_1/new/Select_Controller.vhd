@@ -42,7 +42,7 @@ end Select_Controller;
 
 architecture Behavioral of Select_Controller is
 
-signal counter: UNSIGNED (1 downto 0);
+signal counter: UNSIGNED (1 downto 0) := "00";
 
 begin
 
@@ -50,8 +50,7 @@ process(Clk, Rst)
 begin
 
     if (Rst = '1') then counter <= "00";
-    else
-        counter <= counter + 1;
+    elsif (rising_edge(Clk)) then counter <= counter + 1;
     end if;
     
     Sel <= STD_LOGIC_VECTOR(counter);

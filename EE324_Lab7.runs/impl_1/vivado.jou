@@ -1,12 +1,12 @@
 #-----------------------------------------------------------
-# Vivado v2017.3 (64-bit)
-# SW Build 2018833 on Wed Oct  4 19:58:22 MDT 2017
-# IP Build 2016188 on Wed Oct  4 21:52:56 MDT 2017
-# Start of session at: Sun Dec  3 21:21:28 2017
-# Process ID: 12592
-# Current directory: D:/Documents/SourceTree/EE324_Lab7/EE324_Lab7.runs/impl_1
+# Vivado v2017.3.1 (64-bit)
+# SW Build 2035080 on Fri Oct 20 14:20:01 MDT 2017
+# IP Build 2034413 on Fri Oct 20 15:56:25 MDT 2017
+# Start of session at: Thu Dec  7 15:53:38 2017
+# Process ID: 18116
+# Current directory: C:/Users/jlrei/Documents/SourceTree/EE324_Lab7/EE324_Lab7.runs/impl_1
 # Command line: vivado.exe -log Stopwatch.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source Stopwatch.tcl -notrace
-# Log file: D:/Documents/SourceTree/EE324_Lab7/EE324_Lab7.runs/impl_1/Stopwatch.vdi
-# Journal file: D:/Documents/SourceTree/EE324_Lab7/EE324_Lab7.runs/impl_1\vivado.jou
+# Log file: C:/Users/jlrei/Documents/SourceTree/EE324_Lab7/EE324_Lab7.runs/impl_1/Stopwatch.vdi
+# Journal file: C:/Users/jlrei/Documents/SourceTree/EE324_Lab7/EE324_Lab7.runs/impl_1\vivado.jou
 #-----------------------------------------------------------
 source Stopwatch.tcl -notrace

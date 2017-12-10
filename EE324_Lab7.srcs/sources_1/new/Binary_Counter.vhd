@@ -36,8 +36,8 @@ use IEEE.STD_LOGIC_ARITH.all;
 entity Binary_Counter is
     Port ( 
            En : in STD_LOGIC;
-           clk : in STD_LOGIC;
-           rst : in STD_LOGIC;
+           Clk : in STD_LOGIC;
+           Rst : in STD_LOGIC;
            Cnt : out STD_LOGIC_VECTOR (15 downto 0)
           );
 end Binary_Counter;
@@ -48,11 +48,11 @@ signal counter : UNSIGNED (15 downto 0) := x"0000";
 
 begin
 
-process (clk, rst)
+process (Clk, Rst)
 begin
 
-    if (rst = '1') then counter <= x"0000";
-    else
+    if (Rst = '1') then counter <= x"0000";
+    elsif (rising_edge(Clk)) then
         if (En = '1') then counter <= counter + 1;
         end if;
     end if;

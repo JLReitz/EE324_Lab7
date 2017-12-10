@@ -49,16 +49,16 @@ signal Cnt: STD_Logic_Vector (15 downto 0);
 component Stopwatch_Statemachine
 port (
 BTNs : in STD_LOGIC_VECTOR (2 downto 0);
-clk : in STD_LOGIC;
-rst : in STD_LOGIC;
+Clk : in STD_LOGIC;
+Rst : in STD_LOGIC;
 En : out STD_LOGIC
 ); end component;
 
 component Binary_Counter
 port(
 En : in STD_LOGIC;
-clk : in STD_LOGIC;
-rst : in STD_LOGIC;
+Clk : in STD_LOGIC;
+Rst : in STD_LOGIC;
 Cnt : out STD_LOGIC_VECTOR (15 downto 0)
 ); end component;
 
@@ -86,7 +86,7 @@ begin
                                                     En => En
                                                   );
     counter: Binary_Counter port map(   En => En,
-                                        Clk => Clk,
+                                        Clk => Clk_Div_w,
                                         Rst => Rst,
                                         Cnt => Cnt
                                      );

@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='D:/Documents/SourceTree/EE324_Lab7/EE324_Lab7.runs/impl_1'
+HD_PWD='C:/Users/jlrei/Documents/SourceTree/EE324_Lab7/EE324_Lab7.runs/impl_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

@@ -1,0 +1,9 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../EE324_Lab7.srcs/sources_1/new/Bin2BCD.vhd" \
+"../../../../EE324_Lab7.srcs/sources_1/new/Binary_Counter.vhd" \
+"../../../../EE324_Lab7.srcs/sources_1/new/Statemachine.vhd" \
+"../../../../EE324_Lab7.srcs/sim_1/new/Statemachine_Sim.vhd" \
+
+# Do not sort compile order
+nosort

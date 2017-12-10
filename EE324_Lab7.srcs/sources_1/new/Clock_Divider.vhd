@@ -49,27 +49,19 @@ begin
 process (Clk, Rst)
 begin
     
-    if(rst = '1') then counter <= 0;
-    else
-        if (counter = 49000) then counter <= 0;
+    if(rst = '1') then 
+        counter <= 0;
+        clk_div_state <= clk;
+    elsif (rising_edge(Clk)) then
+        if (counter = 49000) then 
+            counter <= 0;
+            clk_div_state <= not clk_div_state;
         else counter <= counter + 1;
         end if;
     end if;
     
-end process;
-
-process (Clk, Rst)
-begin
-
-    if(rst = '1') then clk_div_state <= '0';
-    else
-        if (counter = 49000) then clk_div_state <= not clk_div_state;
-        else clk_div_state <= clk_div_state;
-        end if;
-    end if;
-    
     Clk_Div <= clk_div_state;
-
+    
 end process;
 
 end Behavioral;
